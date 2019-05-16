@@ -10,7 +10,30 @@
 
 {% block content %}
 
-login!
+{% if error %}
+
+{{ error }}
+ <br />
+ <br />
+{% endif %}
+
+<h1>Login here</h1>
+
+<form method="POST" action="{% url 'login' %}">
+
+    {% csrf_token %}
+    Username:
+    <br />
+    <input type="text" name="username" />
+    <br />
+    Password:
+    <br />
+    <input type="password" name="password" />
+    <br />
+    <br />
+    <input class="btn btn-secondary" type="submit" value="Login" />
+
+</form>
 
 {% endblock%}
 
